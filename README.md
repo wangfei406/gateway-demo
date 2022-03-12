@@ -1,6 +1,6 @@
 ```
 #build package
-./mvnw package
+./mvn package
 
 #build docker image
 docker build -t gateway-demo .
