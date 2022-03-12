@@ -1,0 +1,32 @@
+server:
+  port: 9000
+
+spring:
+  jmx:
+    enabled: false
+  cloud:
+    gateway:
+      default-filters:
+      routes:
+        - id: httpbin
+          uri: http://httpbin.org
+          predicates:
+            - Path=/**
+          filters:
+        - id: user
+          uri: http://localhost:8081
+          predicates:
+            - Path=/user
+        - id: order
+          uri: http://localhost:8082
+          predicates:
+            - Path=/order
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG
+    reactor.netty: DEBUG
+
+management.endpoints.web.exposure.include: '*'
