@@ -1,3 +1,4 @@
+```
 #build package
 ./mvnw package
 
@@ -12,3 +13,4 @@ curl http://localhost:9000/anything
 
 #test with header X-Request-ID1
 curl http://localhost:9000/anything -H "X-Request-ID1:123"
+```
